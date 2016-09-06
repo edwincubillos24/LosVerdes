@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">LosVerdes</string>
+    <string name="app_name">Los Verdes</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="rcontrasena">Repetir Contraseña</string>
+    <string name="entrar">Entrar</string>
+    <string name="correo">Correo Electrónico</string>
+    <string name="registro">Registro</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="miperfil">Mi Perfil</string>
 </resources>
