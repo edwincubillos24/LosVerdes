@@ -9,4 +9,12 @@
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">Cancelar</string>
     <string name="miperfil">Mi Perfil</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hamburguesa">Hamburguesas</string>
+    <string name="perros">Perros</string>
+    <string name="chuzos">Chuzos</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

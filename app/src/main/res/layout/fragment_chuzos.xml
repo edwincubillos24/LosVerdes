@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.edwinacubillos.losverdes.ChuzosFragment"
+    android:orientation="vertical"
+    android:background="@color/losVerdes">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/chuzos"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="@color/black"/>
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/chuzos"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
