@@ -1,6 +1,7 @@
 package com.edwinacubillos.losverdes;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -15,10 +16,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Button bRegistro, bEntrar;
     EditText eContrasena, eUsuario;
 
+    private String user, contrasena;
+    SharedPreferences prefs;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+        prefs = getPreferences(MODE_PRIVATE);
+
+        prefs.getInt("loggeo",-1);
+
+        int dato = prefs.getInt("loggeo",-1);
+        Log.d("Loggeo",String.valueOf(dato));
+
+        if (dato == 1){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
 
         bRegistro = (Button) findViewById(R.id.bRegistro);
         bEntrar = (Button) findViewById(R.id.bEntrar);
@@ -35,7 +55,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         bRegistro.setOnClickListener(this);
         bEntrar.setOnClickListener(this);
-
     }
 
     @Override
@@ -48,6 +67,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     startActivityForResult(intent,1234);
                 break;
             case R.id.bEntrar:
+                if (user.equals(eUsuario.getText().toString())&&contrasena.equals(eContrasena.getText().toString())) {
+                    SharedPreferences.Editor editor;
+                    editor = prefs.edit();
+                    editor.putInt("loggeo",1);
+                    editor.commit();
+                    intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+
+                }
                 break;
         }
 
@@ -56,8 +84,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1234 && resultCode == RESULT_OK){
-            String user = data.getExtras().getString("usuario");
-            String contrasena = data.getExtras().getString("contrasena");
+            user = data.getExtras().getString("usuario");
+            contrasena = data.getExtras().getString("contrasena");
             Log.d("user",user);
             Log.d("contraseña",contrasena);
             //Toast.makeText(this, "user: "+user+" contrasena: "+contrasena,Toast.LENGTH_SHORT).show();
